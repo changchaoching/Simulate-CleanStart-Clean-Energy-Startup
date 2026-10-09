@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanStart: 清潔科技新創經營模擬器 (Web Edition)</title>
+    <title>CleanStart: 清潔科技新創經營模擬器 (24期 明亮版)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN -->
@@ -20,60 +20,60 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: #10b981;
+            background: #059669;
             cursor: pointer;
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen antialiased flex flex-col">
+<body class="bg-slate-50 text-slate-800 min-h-screen antialiased flex flex-col">
 
-    <!-- Top Navigation Bar -->
-    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50 px-4 py-3 sm:px-6">
+    <!-- Top Navigation Bar (Bright Style) -->
+    <header class="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-50 px-4 py-3 sm:px-6 shadow-sm">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-white font-black text-xl">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-md shadow-emerald-500/20 text-white font-black text-xl">
                     CS
                 </div>
                 <div>
-                    <h1 class="text-lg font-bold text-white flex items-center gap-2">
+                    <h1 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                         CleanStart 清潔科技新創模擬器
-                        <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">MIT Sloan Case</span>
+                        <span class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-mono font-semibold">24期 完整週期版</span>
                     </h1>
-                    <p class="text-xs text-slate-400">Based on Prof. John Sterman, David Miller, Joe Hsueh (MIT Sloan LearningEdge)</p>
+                    <p class="text-xs text-slate-500">Based on Prof. John Sterman, David Miller, Joe Hsueh (MIT Sloan LearningEdge)</p>
                 </div>
             </div>
 
             <!-- Quarter Status & Header KPIs -->
-            <div class="flex items-center gap-4 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700 font-mono text-sm">
-                <div class="flex items-center gap-2 text-slate-300">
-                    <span class="text-slate-500 text-xs">季度</span>
-                    <span id="kpiQuarter" class="font-bold text-amber-400 text-base">Y1 Q1</span>
-                    <span class="text-slate-500 text-xs">(第 <span id="kpiQuarterNum">1</span>/24 季)</span>
+            <div class="flex items-center gap-4 bg-slate-100/90 px-4 py-2 rounded-xl border border-slate-200 font-mono text-sm shadow-inner">
+                <div class="flex items-center gap-2 text-slate-700">
+                    <span class="text-slate-400 text-xs">季度</span>
+                    <span id="kpiQuarter" class="font-bold text-amber-600 text-base">Y1 Q1</span>
+                    <span class="text-slate-400 text-xs">(第 <span id="kpiQuarterNum">1</span>/24 季)</span>
                 </div>
-                <div class="h-4 w-px bg-slate-700"></div>
+                <div class="h-4 w-px bg-slate-300"></div>
                 <div class="flex items-center gap-2">
-                    <span class="text-slate-500 text-xs">剩餘現金</span>
-                    <span id="kpiCash" class="font-bold text-emerald-400">$353,700</span>
+                    <span class="text-slate-400 text-xs">剩餘現金</span>
+                    <span id="kpiCash" class="font-bold text-emerald-600">$353,700</span>
                 </div>
-                <div class="h-4 w-px bg-slate-700"></div>
+                <div class="h-4 w-px bg-slate-300"></div>
                 <div class="flex items-center gap-2">
-                    <span class="text-slate-500 text-xs">公司估值</span>
-                    <span id="kpiValuation" class="font-bold text-teal-400">$2.1M</span>
+                    <span class="text-slate-400 text-xs">公司估值</span>
+                    <span id="kpiValuation" class="font-bold text-teal-600">$2.1M</span>
                 </div>
-                <div class="h-4 w-px bg-slate-700"></div>
+                <div class="h-4 w-px bg-slate-300"></div>
                 <div class="flex items-center gap-2">
-                    <span class="text-slate-500 text-xs">創辦人持股</span>
-                    <span id="kpiOwnership" class="font-bold text-indigo-400">90.9%</span>
+                    <span class="text-slate-400 text-xs">創辦人持股</span>
+                    <span id="kpiOwnership" class="font-bold text-indigo-600">90.9%</span>
                 </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex items-center gap-2">
-                <button onclick="resetGame()" class="px-3 py-1.5 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-300 text-xs font-semibold flex items-center gap-1 transition">
+                <button onclick="resetGame()" class="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-semibold flex items-center gap-1 transition shadow-sm bg-white">
                     <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> 重置創立
                 </button>
-                <button onclick="exportCSV()" class="px-3 py-1.5 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-300 text-xs font-semibold flex items-center gap-1 transition">
+                <button onclick="exportCSV()" class="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-semibold flex items-center gap-1 transition shadow-sm bg-white">
                     <i data-lucide="download" class="w-3.5 h-3.5"></i> 匯出報表
                 </button>
             </div>
@@ -87,52 +87,52 @@
         <section class="lg:col-span-4 flex flex-col gap-5">
             
             <!-- Game Over / Alert Banner -->
-            <div id="gameAlertBanner" class="hidden p-4 rounded-2xl border transition-all">
+            <div id="gameAlertBanner" class="hidden p-4 rounded-2xl border transition-all shadow-md">
                 <div class="flex items-start gap-3">
                     <div id="alertIcon" class="mt-0.5"></div>
                     <div>
                         <h4 id="alertTitle" class="font-bold text-sm"></h4>
-                        <p id="alertMessage" class="text-xs mt-1 text-slate-300 leading-relaxed"></p>
+                        <p id="alertMessage" class="text-xs mt-1 text-slate-600 leading-relaxed"></p>
                     </div>
                 </div>
             </div>
 
             <!-- Decision Cockpit Card -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex flex-col gap-4">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <h2 class="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-                        <i data-lucide="sliders" class="w-4 h-4 text-emerald-400"></i>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-slate-800 flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-4 h-4 text-emerald-600"></i>
                         創辦人策略決策艙 (Founder Cockpit)
                     </h2>
-                    <span class="text-xs text-slate-500 font-mono">季度決策</span>
+                    <span class="text-xs text-slate-400 font-mono">24期決策</span>
                 </div>
 
                 <!-- Strategy Preset Buttons -->
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                    <button onclick="applyPreset('bootstrap')" class="px-2.5 py-1.5 rounded-lg bg-teal-950/40 border border-teal-800/50 hover:bg-teal-900/40 text-teal-300 text-left transition flex flex-col">
+                    <button onclick="applyPreset('bootstrap')" class="px-2.5 py-2 rounded-xl bg-teal-50 border border-teal-200 hover:bg-teal-100/70 text-teal-800 text-left transition flex flex-col">
                         <span class="font-bold">自力更生 (Bootstrap)</span>
-                        <span class="text-[10px] text-teal-400/80">不找VC、100%全權掌控</span>
+                        <span class="text-[10px] text-teal-600">不找VC、100%全權掌控</span>
                     </button>
-                    <button onclick="applyPreset('vcscale')" class="px-2.5 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-800/50 hover:bg-emerald-900/40 text-emerald-300 text-left transition flex flex-col">
+                    <button onclick="applyPreset('vcscale')" class="px-2.5 py-2 rounded-xl bg-emerald-50 border border-emerald-200 hover:bg-emerald-100/70 text-emerald-800 text-left transition flex flex-col">
                         <span class="font-bold">創投加速 (VC Scale)</span>
-                        <span class="text-[10px] text-emerald-400/80">融資稀釋、極速招募衝IPO</span>
+                        <span class="text-[10px] text-emerald-600">快速注資、大舉擴充規模</span>
                     </button>
                 </div>
 
                 <!-- Decision 1: Product Price -->
                 <div class="space-y-1.5">
                     <div class="flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-300">
+                        <span class="font-semibold text-slate-700">
                             1. 系統單價 (Product Price)
                         </span>
-                        <span class="font-mono font-bold text-emerald-400 text-sm" id="valPrice">$6,500</span>
+                        <span class="font-mono font-bold text-emerald-600 text-sm" id="valPrice">$6,500</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="adjustValue('price', -200)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">-</button>
-                        <input type="range" id="inputPrice" min="3500" max="12000" step="100" value="6500" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none slider-thumb">
-                        <button onclick="adjustValue('price', 200)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">+</button>
+                        <button onclick="adjustValue('price', -200)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">-</button>
+                        <input type="range" id="inputPrice" min="3500" max="12000" step="100" value="6500" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none slider-thumb">
+                        <button onclick="adjustValue('price', 200)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">+</button>
                     </div>
-                    <div class="flex justify-between text-[10px] text-slate-500">
+                    <div class="flex justify-between text-[10px] text-slate-400">
                         <span>$3,500 (低價搶市)</span>
                         <span>傳統對手: $7,200</span>
                         <span>$12,000 (高毛利)</span>
@@ -142,234 +142,234 @@
                 <!-- Decision 2: Hire Engineers -->
                 <div class="space-y-1.5">
                     <div class="flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-300">
+                        <span class="font-semibold text-slate-700">
                             2. 研發工程師增聘/裁員 (Engineers)
                         </span>
-                        <span class="font-mono font-bold text-blue-400 text-sm" id="valHireEng">+1 人</span>
+                        <span class="font-mono font-bold text-blue-600 text-sm" id="valHireEng">+1 人</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="adjustValue('hireEng', -1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">-</button>
-                        <input type="range" id="inputHireEng" min="-3" max="10" step="1" value="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none slider-thumb">
-                        <button onclick="adjustValue('hireEng', 1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">+</button>
+                        <button onclick="adjustValue('hireEng', -1)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">-</button>
+                        <input type="range" id="inputHireEng" min="-3" max="10" step="1" value="1" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none slider-thumb">
+                        <button onclick="adjustValue('hireEng', 1)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">+</button>
                     </div>
-                    <div class="flex justify-between text-[10px] text-slate-500">
+                    <div class="flex justify-between text-[10px] text-slate-400">
                         <span>目前: <span id="currentEngCount">3</span> 人</span>
                         <span>推動產品能效與交付力</span>
-                        <span>簽約成本 $6k/人</span>
+                        <span>簽約成本 $4k/人</span>
                     </div>
                 </div>
 
                 <!-- Decision 3: Hire Salespeople -->
                 <div class="space-y-1.5">
                     <div class="flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-300">
+                        <span class="font-semibold text-slate-700">
                             3. 銷售業務增聘/裁員 (Salespeople)
                         </span>
-                        <span class="font-mono font-bold text-amber-400 text-sm" id="valHireSales">+1 人</span>
+                        <span class="font-mono font-bold text-amber-600 text-sm" id="valHireSales">+1 人</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="adjustValue('hireSales', -1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">-</button>
-                        <input type="range" id="inputHireSales" min="-3" max="10" step="1" value="1" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none slider-thumb">
-                        <button onclick="adjustValue('hireSales', 1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">+</button>
+                        <button onclick="adjustValue('hireSales', -1)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">-</button>
+                        <input type="range" id="inputHireSales" min="-3" max="10" step="1" value="1" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none slider-thumb">
+                        <button onclick="adjustValue('hireSales', 1)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">+</button>
                     </div>
-                    <div class="flex justify-between text-[10px] text-slate-500">
+                    <div class="flex justify-between text-[10px] text-slate-400">
                         <span>目前: <span id="currentSalesCount">1</span> 人</span>
                         <span>拓展商辦客群知名度</span>
-                        <span>簽約成本 $6k/人</span>
+                        <span>簽約成本 $4k/人</span>
                     </div>
                 </div>
 
                 <!-- Decision 4: Salary Offer -->
                 <div class="space-y-1.5">
                     <div class="flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-300">
+                        <span class="font-semibold text-slate-700">
                             4. 每季薪資給付 (Quarterly Salary)
                         </span>
-                        <span class="font-mono font-bold text-purple-400 text-sm" id="valSalary">$22,000</span>
+                        <span class="font-mono font-bold text-purple-600 text-sm" id="valSalary">$20,000</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="adjustValue('salary', -1000)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">-</button>
-                        <input type="range" id="inputSalary" min="15000" max="35000" step="1000" value="22000" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none slider-thumb">
-                        <button onclick="adjustValue('salary', 1000)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold">+</button>
+                        <button onclick="adjustValue('salary', -1000)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">-</button>
+                        <input type="range" id="inputSalary" min="15000" max="35000" step="1000" value="20000" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none slider-thumb">
+                        <button onclick="adjustValue('salary', 1000)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold border border-slate-200">+</button>
                     </div>
-                    <div class="flex justify-between text-[10px] text-slate-500">
-                        <span>$15k (節約現金)</span>
-                        <span>行業標準: $25,000/季</span>
-                        <span>$35k (留才高薪)</span>
+                    <div class="flex justify-between text-[10px] text-slate-400">
+                        <span>$15k (節省現金)</span>
+                        <span>市場基準: $24,000/季</span>
+                        <span>$35k (高薪搶才)</span>
                     </div>
                 </div>
 
-                <!-- Decision 5: Equity Incentives (Options & Profit Sharing) -->
+                <!-- Decision 5: Equity Incentives -->
                 <div class="grid grid-cols-2 gap-3 text-xs">
                     <div>
-                        <div class="flex justify-between font-semibold text-slate-300 text-[11px] mb-1">
+                        <div class="flex justify-between font-semibold text-slate-700 text-[11px] mb-1">
                             <span>股票期權池</span>
-                            <span class="font-mono text-teal-400" id="valOption">5.0%</span>
+                            <span class="font-mono text-teal-600" id="valOption">5.0%</span>
                         </div>
-                        <input type="range" id="inputOption" min="0.0" max="0.15" step="0.01" value="0.05" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none slider-thumb">
+                        <input type="range" id="inputOption" min="0.0" max="0.15" step="0.01" value="0.05" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none slider-thumb">
                     </div>
                     <div>
-                        <div class="flex justify-between font-semibold text-slate-300 text-[11px] mb-1">
+                        <div class="flex justify-between font-semibold text-slate-700 text-[11px] mb-1">
                             <span>利潤分享比例</span>
-                            <span class="font-mono text-cyan-400" id="valProfitShare">5.0%</span>
+                            <span class="font-mono text-cyan-600" id="valProfitShare">5.0%</span>
                         </div>
-                        <input type="range" id="inputProfitShare" min="0.0" max="0.15" step="0.01" value="0.05" class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none slider-thumb">
+                        <input type="range" id="inputProfitShare" min="0.0" max="0.15" step="0.01" value="0.05" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none slider-thumb">
                     </div>
                 </div>
 
-                <!-- Decision 6: Venture Capital (VC) Financing Round -->
-                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+                <!-- Decision 6: VC Funding Opportunity -->
+                <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-200 space-y-2">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
-                            <i data-lucide="hand-coins" class="w-4 h-4"></i>
+                        <span class="text-xs font-bold text-amber-800 flex items-center gap-1.5">
+                            <i data-lucide="hand-coins" class="w-4 h-4 text-amber-600"></i>
                             創投融資機會 (VC Funding)
                         </span>
-                        <span id="vcRoundBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                        <span id="vcRoundBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300 font-semibold">
                             Seed Round
                         </span>
                     </div>
-                    <p id="vcOfferDescription" class="text-[11px] text-slate-400 leading-relaxed">
-                        目前可向天使/種子創投融資 <strong class="text-white">$750,000</strong>，預估稀釋股權約 <strong>20%</strong>。
+                    <p id="vcOfferDescription" class="text-[11px] text-slate-600 leading-relaxed">
+                        目前可向天使/種子創投融資 <strong class="text-slate-900">$750,000</strong>，預估稀釋股權約 <strong>20%</strong>。
                     </p>
                     <label class="flex items-center gap-2 cursor-pointer pt-1">
-                        <input type="checkbox" id="checkTakeVC" class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-emerald-600 focus:ring-0">
-                        <span class="text-xs font-bold text-slate-200">本季敲定此輪融資 (Take Funding)</span>
+                        <input type="checkbox" id="checkTakeVC" class="w-4 h-4 rounded bg-white border-slate-300 text-emerald-600 focus:ring-0">
+                        <span class="text-xs font-bold text-slate-800">本季敲定此輪融資 (Take Funding)</span>
                     </label>
                 </div>
 
-                <!-- Simulation Run Buttons -->
+                <!-- Run Simulation Action -->
                 <div class="pt-1 flex flex-col gap-2">
-                    <button id="btnRunQuarter" onclick="runNextQuarter()" class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-[0.99] text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 text-base transition">
+                    <button id="btnRunQuarter" onclick="runNextQuarter()" class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 text-base transition">
                         <i data-lucide="play" class="w-5 h-5 fill-current"></i>
                         推進下一季 (Run Quarter)
                     </button>
                     <div class="grid grid-cols-2 gap-2 text-xs">
-                        <button onclick="runMultipleQuarters(4)" class="py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-slate-300 font-medium transition">
+                        <button onclick="runMultipleQuarters(4)" class="py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-slate-700 font-medium transition shadow-sm">
                             自動前進 1 年 (4 季)
                         </button>
-                        <button onclick="runMultipleQuarters(8)" class="py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg text-slate-300 font-medium transition">
+                        <button onclick="runMultipleQuarters(8)" class="py-2 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg text-slate-700 font-medium transition shadow-sm">
                             自動前進 2 年 (8 季)
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Health Diagnostics Card -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl text-xs space-y-3">
-                <h3 class="font-bold text-slate-300 flex items-center gap-2">
-                    <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+            <!-- Diagnostics Card -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-xs space-y-3">
+                <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="activity" class="w-4 h-4 text-emerald-600"></i>
                     新創健康度即時診斷 (Diagnostics)
                 </h3>
                 <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
-                        <div class="text-slate-400 text-[11px]">現金存活月數 (Runway)</div>
-                        <div class="font-mono text-base font-bold text-slate-100 mt-1 flex items-baseline gap-1">
-                            <span id="diagRunway">12.5</span> <span class="text-xs text-slate-500">個月</span>
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80">
+                        <div class="text-slate-500 text-[11px]">現金存活月數 (Runway)</div>
+                        <div class="font-mono text-base font-bold text-slate-900 mt-1 flex items-baseline gap-1">
+                            <span id="diagRunway">12.5</span> <span class="text-xs text-slate-400">個月</span>
                         </div>
-                        <div id="diagRunwayStatus" class="text-[10px] text-emerald-400 mt-0.5">資金充裕</div>
+                        <div id="diagRunwayStatus" class="text-[10px] text-emerald-600 font-medium mt-0.5">資金充裕</div>
                     </div>
-                    <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
-                        <div class="text-slate-400 text-[11px]">團隊士氣指數</div>
-                        <div class="font-mono text-base font-bold text-slate-100 mt-1 flex items-baseline gap-1">
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80">
+                        <div class="text-slate-500 text-[11px]">團隊士氣指數</div>
+                        <div class="font-mono text-base font-bold text-slate-900 mt-1 flex items-baseline gap-1">
                             <span id="diagMorale">1.00</span>
                         </div>
-                        <div id="diagMoraleStatus" class="text-[10px] text-emerald-400 mt-0.5">積極專注</div>
+                        <div id="diagMoraleStatus" class="text-[10px] text-emerald-600 font-medium mt-0.5">積極專注</div>
                     </div>
-                    <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
-                        <div class="text-slate-400 text-[11px]">節能產品效能評等</div>
-                        <div class="font-mono text-base font-bold text-slate-100 mt-1 flex items-baseline gap-1">
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80">
+                        <div class="text-slate-500 text-[11px]">節能產品效能評等</div>
+                        <div class="font-mono text-base font-bold text-slate-900 mt-1 flex items-baseline gap-1">
                             <span id="diagQuality">1.00</span>
                         </div>
-                        <div id="diagQualityStatus" class="text-[10px] text-emerald-400 mt-0.5">基準水準</div>
+                        <div id="diagQualityStatus" class="text-[10px] text-emerald-600 font-medium mt-0.5">基準水準</div>
                     </div>
-                    <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
-                        <div class="text-slate-400 text-[11px]">單位製造成本 (Unit Cost)</div>
-                        <div class="font-mono text-base font-bold text-slate-100 mt-1 flex items-baseline gap-1">
-                            $<span id="diagUnitCost">3,500</span>
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80">
+                        <div class="text-slate-500 text-[11px]">單位製造成本 (Unit Cost)</div>
+                        <div class="font-mono text-base font-bold text-slate-900 mt-1 flex items-baseline gap-1">
+                            $<span id="diagUnitCost">3,200</span>
                         </div>
-                        <div id="diagCostStatus" class="text-[10px] text-emerald-400 mt-0.5">毛利率: <span id="diagMargin">46%</span></div>
+                        <div id="diagCostStatus" class="text-[10px] text-emerald-600 font-medium mt-0.5">毛利率: <span id="diagMargin">51%</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Right Column: Graphs, Dashboards & Financial Reports (8 Cols) -->
+        <!-- Right Column: Graphs & Financial Reports (8 Cols) -->
         <section class="lg:col-span-8 flex flex-col gap-5">
             
             <!-- Summary Metric Cards (4 Cards) -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-lg">
-                    <div class="text-xs text-slate-400 flex items-center justify-between">
+                <div class="bg-white border border-slate-200 rounded-2xl p-3.5 shadow-sm">
+                    <div class="text-xs text-slate-500 flex items-center justify-between">
                         <span>當季訂單 / 交付</span>
-                        <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
+                        <i data-lucide="building-2" class="w-4 h-4 text-emerald-600"></i>
                     </div>
-                    <div class="font-mono font-bold text-xl text-slate-100 mt-1.5" id="cardOrders">10 <span class="text-xs text-slate-500 font-normal">套</span></div>
-                    <div class="text-[11px] text-slate-500 mt-1">累計安裝: <span id="cardInstalledBase">15</span> 套</div>
+                    <div class="font-mono font-bold text-xl text-slate-900 mt-1.5" id="cardOrders">10 <span class="text-xs text-slate-400 font-normal">套</span></div>
+                    <div class="text-[11px] text-slate-400 mt-1">累計安裝: <span id="cardInstalledBase" class="text-slate-700 font-semibold">15</span> 套</div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-lg">
-                    <div class="text-xs text-slate-400 flex items-center justify-between">
+                <div class="bg-white border border-slate-200 rounded-2xl p-3.5 shadow-sm">
+                    <div class="text-xs text-slate-500 flex items-center justify-between">
                         <span>當季營業額 (Revenue)</span>
-                        <i data-lucide="dollar-sign" class="w-4 h-4 text-teal-400"></i>
+                        <i data-lucide="dollar-sign" class="w-4 h-4 text-teal-600"></i>
                     </div>
-                    <div class="font-mono font-bold text-xl text-teal-400 mt-1.5" id="cardRevenue">$65,000</div>
-                    <div class="text-[11px] text-slate-500 mt-1">毛利: <span id="cardGrossProfit">$30,000</span></div>
+                    <div class="font-mono font-bold text-xl text-teal-600 mt-1.5" id="cardRevenue">$65,000</div>
+                    <div class="text-[11px] text-slate-400 mt-1">毛利: <span id="cardGrossProfit" class="text-slate-700 font-semibold">$33,000</span></div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-lg">
-                    <div class="text-xs text-slate-400 flex items-center justify-between">
+                <div class="bg-white border border-slate-200 rounded-2xl p-3.5 shadow-sm">
+                    <div class="text-xs text-slate-500 flex items-center justify-between">
                         <span>當季淨損益 (Net Profit)</span>
-                        <i data-lucide="trending-up" class="w-4 h-4 text-indigo-400"></i>
+                        <i data-lucide="trending-up" class="w-4 h-4 text-indigo-600"></i>
                     </div>
-                    <div class="font-mono font-bold text-xl text-red-400 mt-1.5" id="cardNetIncome">-$96,300</div>
-                    <div class="text-[11px] text-slate-500 mt-1">燃燒率: <span id="cardBurnRate">$96k/季</span></div>
+                    <div class="font-mono font-bold text-xl text-rose-600 mt-1.5" id="cardNetIncome">-$84,000</div>
+                    <div class="text-[11px] text-slate-400 mt-1">燃燒率: <span id="cardBurnRate" class="text-slate-700 font-semibold">$84k/季</span></div>
                 </div>
 
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 shadow-lg">
-                    <div class="text-xs text-slate-400 flex items-center justify-between">
+                <div class="bg-white border border-slate-200 rounded-2xl p-3.5 shadow-sm">
+                    <div class="text-xs text-slate-500 flex items-center justify-between">
                         <span>創辦人持股價值</span>
-                        <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+                        <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
                     </div>
-                    <div class="font-mono font-bold text-xl text-amber-400 mt-1.5" id="cardFounderValue">$1.87M</div>
-                    <div class="text-[11px] text-slate-500 mt-1">持股比例: <span id="cardOwnership">90.9%</span></div>
+                    <div class="font-mono font-bold text-xl text-amber-600 mt-1.5" id="cardFounderValue">$1.82M</div>
+                    <div class="text-[11px] text-slate-400 mt-1">持股比例: <span id="cardOwnership" class="text-slate-700 font-semibold">90.9%</span></div>
                 </div>
             </div>
 
             <!-- Tab Switcher for Charts vs Detailed Financial Table -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl flex-1 flex flex-col">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex-1 flex flex-col">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                     <div class="flex items-center gap-2">
-                        <button id="tabBtnCharts" onclick="switchView('charts')" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold transition">
+                        <button id="tabBtnCharts" onclick="switchView('charts')" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold transition shadow-sm">
                             動態趨勢圖表 (Charts)
                         </button>
-                        <button id="tabBtnTable" onclick="switchView('table')" class="px-3.5 py-1.5 rounded-lg hover:bg-slate-800 text-slate-400 text-xs font-semibold transition">
+                        <button id="tabBtnTable" onclick="switchView('table')" class="px-3.5 py-1.5 rounded-lg hover:bg-slate-100 text-slate-600 text-xs font-semibold transition">
                             新創損益財務報表 (Financials)
                         </button>
-                        <button id="tabBtnCausal" onclick="switchView('causal')" class="px-3.5 py-1.5 rounded-lg hover:bg-slate-800 text-slate-400 text-xs font-semibold transition">
+                        <button id="tabBtnCausal" onclick="switchView('causal')" class="px-3.5 py-1.5 rounded-lg hover:bg-slate-100 text-slate-600 text-xs font-semibold transition">
                             系統反饋與創業啟示 (System Dynamics)
                         </button>
                     </div>
-                    <span class="text-xs text-slate-500 font-mono">MIT Sloan Case</span>
+                    <span class="text-xs text-slate-400 font-mono font-semibold">24-Quarter Architecture</span>
                 </div>
 
-                <!-- VIEW 1: Charts Section -->
+                <!-- VIEW 1: Charts Section (Clean White Backgrounds) -->
                 <div id="viewCharts" class="space-y-6">
-                    <!-- Chart Row 1: Scale & Financials -->
+                    <!-- Chart Row 1 -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="text-xs font-bold text-slate-300 mb-2 flex items-center justify-between">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-700 mb-2 flex items-center justify-between">
                                 <span>營收、成本與現金餘額 (Cash & Revenues)</span>
-                                <span class="text-[10px] text-slate-500 font-normal">$ USD</span>
+                                <span class="text-[10px] text-slate-400 font-normal">$ USD</span>
                             </h4>
                             <div class="h-52">
                                 <canvas id="chartFinancials"></canvas>
                             </div>
                         </div>
 
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="text-xs font-bold text-slate-300 mb-2 flex items-center justify-between">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-700 mb-2 flex items-center justify-between">
                                 <span>商辦安裝量成長曲線 (Adoption Curve)</span>
-                                <span class="text-[10px] text-slate-500 font-normal">商辦/建築套數</span>
+                                <span class="text-[10px] text-slate-400 font-normal">商辦/建築套數</span>
                             </h4>
                             <div class="h-52">
                                 <canvas id="chartAdoption"></canvas>
@@ -377,22 +377,22 @@
                         </div>
                     </div>
 
-                    <!-- Chart Row 2: Valuation & Team -->
+                    <!-- Chart Row 2 -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="text-xs font-bold text-slate-300 mb-2 flex items-center justify-between">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-700 mb-2 flex items-center justify-between">
                                 <span>公司估值與創辦人持股價值 (Valuation & Equity)</span>
-                                <span class="text-[10px] text-slate-500 font-normal">$ USD</span>
+                                <span class="text-[10px] text-slate-400 font-normal">$ USD</span>
                             </h4>
                             <div class="h-52">
                                 <canvas id="chartValuation"></canvas>
                             </div>
                         </div>
 
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <h4 class="text-xs font-bold text-slate-300 mb-2 flex items-center justify-between">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-700 mb-2 flex items-center justify-between">
                                 <span>工程師、業務人數與產品品質 (Team & R&D)</span>
-                                <span class="text-[10px] text-slate-500 font-normal">左軸: 人數 | 右軸: 效能評等</span>
+                                <span class="text-[10px] text-slate-400 font-normal">左軸: 人數 | 右軸: 效能評等</span>
                             </h4>
                             <div class="h-52">
                                 <canvas id="chartTeam"></canvas>
@@ -403,50 +403,50 @@
 
                 <!-- VIEW 2: Data Table Section -->
                 <div id="viewTable" class="hidden overflow-x-auto flex-1 max-h-[500px]">
-                    <table class="w-full text-left text-xs text-slate-300">
-                        <thead class="bg-slate-950 text-slate-400 font-mono uppercase text-[10px] sticky top-0">
+                    <table class="w-full text-left text-xs text-slate-700">
+                        <thead class="bg-slate-100 text-slate-500 font-mono uppercase text-[10px] sticky top-0">
                             <tr>
-                                <th class="p-2 border-b border-slate-800">季度</th>
-                                <th class="p-2 border-b border-slate-800 text-right">工程師</th>
-                                <th class="p-2 border-b border-slate-800 text-right">業務</th>
-                                <th class="p-2 border-b border-slate-800 text-right">新訂單</th>
-                                <th class="p-2 border-b border-slate-800 text-right">完工交付</th>
-                                <th class="p-2 border-b border-slate-800 text-right">累計商辦</th>
-                                <th class="p-2 border-b border-slate-800 text-right">單價</th>
-                                <th class="p-2 border-b border-slate-800 text-right">營收</th>
-                                <th class="p-2 border-b border-slate-800 text-right">研發支出</th>
-                                <th class="p-2 border-b border-slate-800 text-right">淨利</th>
-                                <th class="p-2 border-b border-slate-800 text-right">現金餘額</th>
-                                <th class="p-2 border-b border-slate-800 text-right">公司估值</th>
-                                <th class="p-2 border-b border-slate-800 text-right">創辦人股權</th>
+                                <th class="p-2 border-b border-slate-200">季度</th>
+                                <th class="p-2 border-b border-slate-200 text-right">工程師</th>
+                                <th class="p-2 border-b border-slate-200 text-right">業務</th>
+                                <th class="p-2 border-b border-slate-200 text-right">新訂單</th>
+                                <th class="p-2 border-b border-slate-200 text-right">完工交付</th>
+                                <th class="p-2 border-b border-slate-200 text-right">累計商辦</th>
+                                <th class="p-2 border-b border-slate-200 text-right">單價</th>
+                                <th class="p-2 border-b border-slate-200 text-right">營收</th>
+                                <th class="p-2 border-b border-slate-200 text-right">研發支出</th>
+                                <th class="p-2 border-b border-slate-200 text-right">淨利</th>
+                                <th class="p-2 border-b border-slate-200 text-right">現金餘額</th>
+                                <th class="p-2 border-b border-slate-200 text-right">公司估值</th>
+                                <th class="p-2 border-b border-slate-200 text-right">創辦人股權</th>
                             </tr>
                         </thead>
-                        <tbody id="dataTableBody" class="font-mono divide-y divide-slate-800/60">
+                        <tbody id="dataTableBody" class="font-mono divide-y divide-slate-100">
                             <!-- Populated dynamically -->
                         </tbody>
                     </table>
                 </div>
 
                 <!-- VIEW 3: Causal Loop Diagram Explanation -->
-                <div id="viewCausal" class="hidden space-y-4 text-xs text-slate-300 leading-relaxed">
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                        <h4 class="font-bold text-sm text-emerald-400 mb-2">CleanStart 清潔科技新創系統動力學反饋模型 (System Dynamics)</h4>
+                <div id="viewCausal" class="hidden space-y-4 text-xs text-slate-600 leading-relaxed">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-sm text-emerald-700 mb-2">CleanStart 清潔科技新創系統動力學反饋模型 (System Dynamics)</h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
-                            <div class="border border-slate-800/80 p-3 rounded-lg bg-slate-900/40">
-                                <h5 class="font-bold text-emerald-400 text-xs mb-1">迴路 R1: 技術學習曲線與成本優勢 (Learning by Doing)</h5>
-                                <p class="text-slate-400 text-[11px]">累積安裝商辦增加 $\rightarrow$ 製造經驗累積與規格標準化 $\rightarrow$ 單位安裝成本顯著下降 $\rightarrow$ 毛利率擴大 $\rightarrow$ 強化價格競爭力與獲利。</p>
+                            <div class="border border-slate-200 p-3 rounded-lg bg-white shadow-sm">
+                                <h5 class="font-bold text-emerald-700 text-xs mb-1">迴路 R1: 技術學習曲線與成本優勢 (Learning by Doing)</h5>
+                                <p class="text-slate-500 text-[11px]">累積安裝商辦增加 $\rightarrow$ 製造經驗累積與規格標準化 $\rightarrow$ 單位安裝成本顯著下降 $\rightarrow$ 毛利率擴大 $\rightarrow$ 強化價格競爭力與獲利。</p>
                             </div>
-                            <div class="border border-slate-800/80 p-3 rounded-lg bg-slate-900/40">
-                                <h5 class="font-bold text-teal-400 text-xs mb-1">迴路 R2: 客戶口碑與傳播擴散 (Word of Mouth)</h5>
-                                <p class="text-slate-400 text-[11px]">商辦成功案例增加 $\rightarrow$ 大樓物業管理業界口碑發酵 $\rightarrow$ 市場知名度自發提升 $\rightarrow$ 降低每位業務獲客難度 $\rightarrow$ 訂單指數級加速。</p>
+                            <div class="border border-slate-200 p-3 rounded-lg bg-white shadow-sm">
+                                <h5 class="font-bold text-teal-700 text-xs mb-1">迴路 R2: 客戶口碑與傳播擴散 (Word of Mouth)</h5>
+                                <p class="text-slate-500 text-[11px]">商辦成功案例增加 $\rightarrow$ 大樓物業管理業界口碑發酵 $\rightarrow$ 市場知名度自發提升 $\rightarrow$ 降低每位業務獲客難度 $\rightarrow$ 訂單指數級加速。</p>
                             </div>
-                            <div class="border border-slate-800/80 p-3 rounded-lg bg-slate-900/40">
-                                <h5 class="font-bold text-amber-400 text-xs mb-1">迴路 B1: 資本融資與股權稀釋權衡 (Financing vs. Dilution)</h5>
-                                <p class="text-slate-400 text-[11px]">提早引進創投資金可大幅延長現金壽命、大舉招聘衝刺市場 $\rightarrow$ 但每一輪融資皆稀釋 18~22% 創辦人股權 $\rightarrow$ 自力更生（Bootstrap）考驗極限現金流控管。</p>
+                            <div class="border border-slate-200 p-3 rounded-lg bg-white shadow-sm">
+                                <h5 class="font-bold text-amber-700 text-xs mb-1">迴路 B1: 資本融資與股權稀釋權衡 (Financing vs. Dilution)</h5>
+                                <p class="text-slate-500 text-[11px]">提早引進創投資金可大幅延長現金壽命、大舉招聘衝刺市場 $\rightarrow$ 但每一輪融資皆稀釋 18~22% 創辦人股權 $\rightarrow$ 自力更生（Bootstrap）考驗極限現金流控管。</p>
                             </div>
-                            <div class="border border-slate-800/80 p-3 rounded-lg bg-slate-900/40">
-                                <h5 class="font-bold text-red-400 text-xs mb-1">迴路 B2: 研發與銷售資源失衡陷阱 (R&D vs Sales Imbalance)</h5>
-                                <p class="text-slate-400 text-[11px]">若只招工程師而缺乏業務，技術卓越卻無訂單導致現金流枯竭；若只招業務而研發停滯，競爭力被大廠追平，安裝能力不足引發違約積壓。</p>
+                            <div class="border border-slate-200 p-3 rounded-lg bg-white shadow-sm">
+                                <h5 class="font-bold text-rose-700 text-xs mb-1">迴路 B2: 研發與銷售資源失衡陷阱 (R&D vs Sales Imbalance)</h5>
+                                <p class="text-slate-500 text-[11px]">若只招工程師而缺乏業務，技術卓越卻無訂單導致現金流枯竭；若只招業務而研發停滯，競爭力被大廠追平，安裝能力不足引發違約積壓。</p>
                             </div>
                         </div>
                     </div>
@@ -457,8 +457,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 px-6 py-4 text-center text-xs text-slate-500 bg-slate-950">
-        CleanStart: Simulating a Clean Energy Startup (Web Architecture Prototype) &bull; Originated by Prof. John Sterman, David Miller, Joe Hsueh (MIT Sloan School of Management)
+    <footer class="border-t border-slate-200 px-6 py-4 text-center text-xs text-slate-500 bg-white">
+        CleanStart: Simulating a Clean Energy Startup (24-Quarter Edition) &bull; Originated by Prof. John Sterman, David Miller, Joe Hsueh (MIT Sloan School of Management)
     </footer>
 
     <!-- Scripts -->

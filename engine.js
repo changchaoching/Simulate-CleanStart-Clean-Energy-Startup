@@ -1,5 +1,5 @@
 /**
- * CleanStart: Simulating a Clean Energy Startup
+ * CleanStart: Simulating a Clean Energy Startup (24-Quarter Edition)
  * Simulation Core Engine
  * Based on MIT Sloan (Prof. John Sterman, David Miller, Joe Hsueh)
  */
@@ -11,7 +11,7 @@ class CleanStartEngine {
 
     reset() {
         this.currentQuarter = 1;
-        this.maxQuarters = 24; // 6 Years (24 Quarters)
+        this.maxQuarters = 24; // 完整 24 期 (6 年完整創業週期)
         this.isGameOver = false;
         this.gameOverReason = "";
         this.hasIPO = false;
@@ -22,7 +22,7 @@ class CleanStartEngine {
         this.engineerProductivity = 1.0;   // 研發工程師平均生產力 (基準 1.0)
         this.salesProductivity = 1.0;      // 業務人員銷售力 (基準 1.0)
         this.staffMorale = 1.0;            // 員工綜合士氣 (0.2 ~ 1.5)
-        this.turnoverRate = 0.03;          // 離職率
+        this.turnoverRate = 0.03;          // 季自然離職率 3%
 
         // 薪資與激勵政策 (Compensation Policy)
         this.marketSalary = 24000;         // 市場基準季薪 ($24k / 季，約年薪 $96k)
@@ -228,7 +228,7 @@ class CleanStartEngine {
         let baseNewOrders = Math.round(potentialMarket * this.marketAwareness * priceAttractiveness * qualityAttractiveness * (salesOutreach / (salesOutreach + 3)));
         this.quarterlyOrders = Math.max(1, baseNewOrders);
 
-        // 交付履約能力 (隨工程師與標準化成熟度擴大，每位工程師與業務團隊每季可支援 8~12 套交付)
+        // 交付履約能力
         let maxInstallationCapacity = Math.round(this.engineers * 8.5 + this.salespeople * 4.0 + (this.installedBase * 0.05));
         let totalPending = this.quarterlyOrders + this.backlog;
         this.quarterlyDeliveries = Math.min(totalPending, maxInstallationCapacity);
@@ -238,18 +238,15 @@ class CleanStartEngine {
         // 5. 結算財務與估值
         this.calculateFinancials(hireEng, hireSales, takeVCFunding);
 
-        // 6. 勝負與破產判定
+        // 6. 勝負與破產判定 (確保支援執行完整 24 期)
         if (this.cash < -20000) {
             this.isGameOver = true;
             this.gameOverReason = `【宣告破產 (Insolvent)】第 ${this.currentQuarter} 季現金枯竭 ($${Math.round(this.cash).toLocaleString()})！新創公司無力支付員工薪資與零件貨款，被迫清算倒閉！`;
-        } else if (this.hasIPO || (this.quarterlyDeliveries >= 100 && this.revenue >= 600000 && this.netIncome > 100000)) {
-            this.isGameOver = true;
-            let founderNetWorth = Math.round(this.valuation * this.founderOwnership);
-            this.gameOverReason = `【成功敲鐘上市 (IPO Success)】第 ${this.currentQuarter} 季達成公開上市！公司估值突破 $${(this.valuation / 1e6).toFixed(1)}M，創辦人身價達 $${(founderNetWorth / 1e6).toFixed(1)}M (持股 ${(this.founderOwnership * 100).toFixed(1)}%)！`;
         } else if (this.currentQuarter >= this.maxQuarters) {
             this.isGameOver = true;
             let founderNetWorth = Math.round(this.valuation * this.founderOwnership);
-            this.gameOverReason = `【完成 6 年創業者旅程】達成 24 季營運！累積安裝 ${this.installedBase} 套商辦節能系統，最終估值 $${(this.valuation / 1e6).toFixed(1)}M，創辦人資產 $${(founderNetWorth / 1e6).toFixed(1)}M。`;
+            let ipoTag = this.hasIPO ? "且已成功上市 (Public)" : (this.cumulativeNetIncome > 0 ? "且穩健獲利" : "");
+            this.gameOverReason = `【完成完整 24 期 (6年) 創業挑戰】達成第 24 季營運！累積安裝商辦: ${this.installedBase} 套，公司最終估值: $${(this.valuation / 1e6).toFixed(1)}M，創辦人持股身價: $${(founderNetWorth / 1e6).toFixed(1)}M (${(this.founderOwnership * 100).toFixed(1)}%) ${ipoTag}！`;
         }
 
         // 7. 推進季度並記錄歷史

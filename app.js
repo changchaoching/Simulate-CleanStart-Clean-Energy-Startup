@@ -19,24 +19,24 @@ function initCharts() {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                labels: { color: '#94a3b8', font: { size: 10, family: 'Plus Jakarta Sans' } }
+                labels: { color: '#334155', font: { size: 10, family: 'Plus Jakarta Sans' } }
             },
             tooltip: {
                 mode: 'index',
                 intersect: false,
-                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)', borderColor: '#cbd5e1', borderWidth: 1, titleColor: '#0f172a', bodyColor: '#334155',
                 titleFont: { size: 11, family: 'JetBrains Mono' },
                 bodyFont: { size: 10, family: 'JetBrains Mono' }
             }
         },
         scales: {
             x: {
-                grid: { color: 'rgba(51, 65, 85, 0.2)' },
-                ticks: { color: '#64748b', font: { size: 9, family: 'JetBrains Mono' } }
+                grid: { color: 'rgba(226, 232, 240, 0.8)' },
+                ticks: { color: '#475569', font: { size: 9, family: 'JetBrains Mono' } }
             },
             y: {
-                grid: { color: 'rgba(51, 65, 85, 0.2)' },
-                ticks: { color: '#64748b', font: { size: 9, family: 'JetBrains Mono' } }
+                grid: { color: 'rgba(226, 232, 240, 0.8)' },
+                ticks: { color: '#475569', font: { size: 9, family: 'JetBrains Mono' } }
             }
         }
     };
